@@ -19,13 +19,16 @@ document.addEventListener("mouseup", (e) => {
 btnInput.addEventListener("click", applyUserInput);
 
 
-function applyUserInput(){
+function applyUserInput() {
     const nbLine = input.value;
-    delTable();
-    createTable(nbLine);
+    if (nbLine >= 100 && nbLine > 0) {
+        delTable();
+        createTable(nbLine);
+    }
+
 }
 
-function delTable(){
+function delTable() {
     const childDivs = container.querySelectorAll("div");
     childDivs.forEach((div) => {
         div.remove();
@@ -33,7 +36,7 @@ function delTable(){
 }
 
 function createTable(nbLine) {
-    
+
     for (let column = 0; column <= nbLine - 1; column++) {
         for (let line = 0; line <= nbLine - 1; line++) {
             createDiv(column, line, nbLine);
@@ -57,7 +60,7 @@ function setTrail(event) {
         if (mouseDown) {
             div.style.backgroundColor = "pink";
         }
-    }else if (event.type === "mousedown"){
+    } else if (event.type === "mousedown") {
         div.style.backgroundColor = "green";
     }
 }
