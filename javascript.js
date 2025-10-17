@@ -7,6 +7,7 @@ const btnRandomColor = document.querySelector("#btnRandomColor");
 const btnClear = document.querySelector("#btnClear")
 
 let mouseDown = false;
+const baseColor = "rgb(40, 43, 185)";
 let randomColor = false;
 
 document.addEventListener("mousedown", (e) => {
@@ -41,6 +42,8 @@ function delTable() {
     });
 }
 
+btnClear.addEventListener("click", clearTable);
+
 function createTable(nbLine) {
 
     for (let column = 0; column <= nbLine - 1; column++) {
@@ -53,6 +56,7 @@ function createTable(nbLine) {
 function createDiv(column, line, nbLine) {
     let div = document.createElement("div");
     div.textContent = String(nbLine * column + line);
+    div.style.backgroundColor = baseColor;
     div.style.width = (parseFloat(getComputedStyle(container).width) / nbLine) + "px";
 
     div.addEventListener("mouseenter", setTrail);
@@ -89,4 +93,11 @@ function toggleRandomColor(){
     } else{
         btnRandomColor.textContent = "Random Color : off";
     }
+}
+
+function clearTable(){
+    const childDivs = container.querySelectorAll("div");
+    childDivs.forEach((div) =>{
+        div.style.backgroundColor = baseColor;
+    });
 }
