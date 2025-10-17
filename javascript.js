@@ -2,6 +2,8 @@ const container = document.querySelector("#container");
 const input = document.querySelector("#input");
 const btnInput = document.querySelector("#btnInput");
 
+let mouseDown = false;
+
 document.addEventListener("mousedown", (e) => {
     if (e.button === 0) {
         mouseDown = true;
@@ -14,14 +16,24 @@ document.addEventListener("mouseup", (e) => {
     }
 });
 
-// GEN SUIS LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-// btnInput.addEventListener("click", createTable){
+btnInput.addEventListener("click", applyUserInput);
 
-// }
-// ========================================================================================
 
-function createTable() {
+function applyUserInput(){
     const nbLine = input.value;
+    delTable();
+    createTable(nbLine);
+}
+
+function delTable(){
+    const childDivs = container.querySelectorAll("div");
+    childDivs.forEach((div) => {
+        div.remove();
+    });
+}
+
+function createTable(nbLine) {
+    
     for (let column = 0; column <= nbLine - 1; column++) {
         for (let line = 0; line <= nbLine - 1; line++) {
             createDiv(column, line, nbLine);
@@ -31,11 +43,9 @@ function createTable() {
 
 function createDiv(column, line, nbLine) {
     let div = document.createElement("div");
-    div.textContent = String(16 * column + line);
-    div.style.width = container.style.width / nbLine;
+    div.textContent = String(nbLine * column + line);
+    div.style.width = (parseFloat(getComputedStyle(container).width) / nbLine) + "px";
 
-    // To change color only once when user click
-    div.setAttribute("colorChanged", false);
     div.addEventListener("mouseenter", setTrail);
     div.addEventListener("mousedown", setTrail);
     container.appendChild(div);
@@ -51,8 +61,3 @@ function setTrail(event) {
         div.style.backgroundColor = "green";
     }
 }
-
-
-
-let mouseDown = false;
-createTable();
