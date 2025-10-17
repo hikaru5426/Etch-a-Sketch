@@ -21,4 +21,7 @@ body{
     background-color:blue;
     width:5vw;
     aspect-ratio:1/1;
+
+    /*for testing*/
+    user-select:none;
 }
