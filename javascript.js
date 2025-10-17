@@ -1,8 +1,13 @@
 const container = document.querySelector("#container");
+
 const input = document.querySelector("#input");
 const btnInput = document.querySelector("#btnInput");
 
+const btnRandomColor = document.querySelector("#btnRandomColor");
+const btnClear = document.querySelector("#btnClear")
+
 let mouseDown = false;
+let randomColor = false;
 
 document.addEventListener("mousedown", (e) => {
     if (e.button === 0) {
@@ -18,15 +23,16 @@ document.addEventListener("mouseup", (e) => {
 
 btnInput.addEventListener("click", applyUserInput);
 
-
 function applyUserInput() {
     const nbLine = input.value;
-    if (nbLine >= 100 && nbLine > 0) {
+    if (nbLine <= 100 && nbLine > 0) {
         delTable();
         createTable(nbLine);
     }
 
 }
+
+btnRandomColor.addEventListener("click", toggleRandomColor);
 
 function delTable() {
     const childDivs = container.querySelectorAll("div");
@@ -58,9 +64,29 @@ function setTrail(event) {
     let div = event.target;
     if (event.type === "mouseenter") {
         if (mouseDown) {
-            div.style.backgroundColor = "pink";
+            div.style.backgroundColor = getColor();
         }
     } else if (event.type === "mousedown") {
-        div.style.backgroundColor = "green";
+        div.style.backgroundColor = getColor();
+    }
+}
+
+function getColor(){
+    if (randomColor){
+        const h = Math.floor(Math.random()*360);
+        const s = 70;
+        const l = 50;
+        return `hsl(${h}, ${s}%, ${l}%)`;
+    } else{
+        return "pink";
+    }
+}
+
+function toggleRandomColor(){
+    randomColor = !randomColor
+    if (randomColor === true){
+        btnRandomColor.textContent = "Random Color : on";
+    } else{
+        btnRandomColor.textContent = "Random Color : off";
     }
 }
