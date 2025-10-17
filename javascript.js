@@ -1,3 +1,7 @@
+const container = document.querySelector("#container");
+const input = document.querySelector("#input");
+const btnInput = document.querySelector("#btnInput");
+
 document.addEventListener("mousedown", (e) => {
     if (e.button === 0) {
         mouseDown = true;
@@ -10,18 +14,25 @@ document.addEventListener("mouseup", (e) => {
     }
 });
 
+// GEN SUIS LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+// btnInput.addEventListener("click", createTable){
+
+// }
+// ========================================================================================
 
 function createTable() {
-    for (let column = 0; column <= 15; column++) {
-        for (let line = 0; line <= 15; line++) {
-            createDiv(column, line);
+    const nbLine = input.value;
+    for (let column = 0; column <= nbLine - 1; column++) {
+        for (let line = 0; line <= nbLine - 1; line++) {
+            createDiv(column, line, nbLine);
         }
     }
 }
 
-function createDiv(column, line) {
+function createDiv(column, line, nbLine) {
     let div = document.createElement("div");
     div.textContent = String(16 * column + line);
+    div.style.width = container.style.width / nbLine;
 
     // To change color only once when user click
     div.setAttribute("colorChanged", false);
@@ -42,6 +53,6 @@ function setTrail(event) {
 }
 
 
-const container = document.querySelector("#container");
+
 let mouseDown = false;
 createTable();

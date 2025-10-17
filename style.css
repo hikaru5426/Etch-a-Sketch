@@ -7,7 +7,7 @@ body{
 }
 
 #container{
-    width:80vw;
+    width:960px;
     aspect-ratio:1/1;
     display:flex;
     flex-wrap:wrap;
@@ -19,7 +19,7 @@ body{
     align-items:center;
     justify-content:center;
     background-color:blue;
-    width:5vw;
+    width:50px;
     aspect-ratio:1/1;
 
     /*for testing*/
