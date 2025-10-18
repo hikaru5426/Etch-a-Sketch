@@ -91,7 +91,7 @@ function getColor(div) {
 
     if (randomColor) {
         if (darkeningEffect === true) {
-            // This if is for avoid changing to another random color when mouse pass on cell and (randomColor + darkeningEffect) are activated
+            // This if is to avoid changing to another random color when mouse pass on cell and (randomColor + darkeningEffect) are activated
             if(div.timesPassedOn === 1){
                 h = Math.floor(Math.random() * 360);
                 div.h = h;
@@ -102,6 +102,7 @@ function getColor(div) {
             l = div.timesPassedOn < 10 ? (100 - div.timesPassedOn * 10) : 0;
         } else {
             h = Math.floor(Math.random() * 360);
+            div.h = h
             l = 50;
         }
 
@@ -120,6 +121,7 @@ function getColor(div) {
 }
 
 function toggleRandomColor() {
+    clearTable();
     randomColor = !randomColor;
     if (randomColor === true) {
         btnRandomColor.textContent = "Random Color : on";
@@ -132,6 +134,7 @@ function clearTable() {
     const childDivs = container.querySelectorAll("div");
     childDivs.forEach((div) => {
         div.style.backgroundColor = baseColor;
+        div.timesPassedOn = 0;
     });
 }
 
@@ -139,8 +142,8 @@ function toggleDarkeningEffect() {
     darkeningEffect = !darkeningEffect;
     clearTable();
     if (darkeningEffect === true) {
-        btnDarkeningEffect.textContent = "DarkeningEffect : on (Clicking on it will also clear the table)";
+        btnDarkeningEffect.textContent = "Darkening Effect : on";
     } else {
-        btnDarkeningEffect.textContent = "Darkening Effect : off (Clicking on it will also clear the table)";
+        btnDarkeningEffect.textContent = "Darkening Effect : off";
     }
 }
