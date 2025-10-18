@@ -1,9 +1,14 @@
 body{
     display:flex;
     flex-direction:column;
-    background-color: black;
-    color:white;
+    background-color: rgb(47, 122, 229);
+    color:black;
     align-items:center;
+}
+
+#container, #container > div{
+    border:2px solid grey;
+    border-radius:10px;
 }
 
 #container{
@@ -11,7 +16,7 @@ body{
     aspect-ratio:1/1;
     display:flex;
     flex-wrap:wrap;
-    border:1px solid grey
+    background-color:white;
 }
 
 #container > div{
@@ -20,7 +25,8 @@ body{
     justify-content:center;
     width:50px;
     aspect-ratio:1/1;
-
+    box-sizing: border-box;
+    
     /*for testing*/
     user-select:none;
 }

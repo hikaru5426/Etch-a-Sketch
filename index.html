@@ -21,9 +21,12 @@
     <div id="centerPart">
 
         <div id="options">
-            <div id="colorPicker">
-
+            <div id="divColorPicker">
+                <label for="colorPicker">Pick a color</label>
+                <input type="color" id="colorPicker" value="#000000">
+                <p>Selected color : <span id="chosenColorText">hsl(0, 0%, 0%)</span></p>
             </div>
+
             <button id="btnRandomColor">Random Color : off</button>
             <button id="btnClear">Clear</button>
             <button id="btnDarkeningEffect">Darkening Effect : off</button>
