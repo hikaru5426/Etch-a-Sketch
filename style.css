@@ -1,9 +1,60 @@
-body{
+button, input{
+    font-size:inherit;
+}
+
+button{
+    background-color:rgb(42 42 255);
+    color:white;
+    font-weight:bold;
+    border-radius:10px;
+    padding:10px;
+}
+
+.flexColumn{
     display:flex;
     flex-direction:column;
-    background-color: rgb(47, 122, 229);
+}
+
+body{
+    display:flex;
+    background-color: rgb(237, 237, 237);
     color:black;
+    justify-content:space-evenly;
     align-items:center;
+    font-weight:bold;
+    font-size:20px;
+}
+
+#leftMenu{
+    align-items:center;
+    gap:10vh;
+}
+
+#title{
+    font-size:50px;
+}
+
+#options{
+    justify-content:space-evenly;
+    border:10px solid rgb(200, 200, 200);
+    border-radius:10px;
+    height:60vh;
+    width:20vw;
+    padding:10px;
+}
+
+#divInput{
+    display:flex;
+    gap:10px;
+}
+
+#input{
+    flex:1 1 0;
+    min-width: 30px;
+}
+
+#btnInput{
+    flex:0 0 auto;
 }
 
 #container, #container > div{
@@ -12,7 +63,7 @@ body{
 }
 
 #container{
-    width:960px;
+    width:50vw;
     aspect-ratio:1/1;
     display:flex;
     flex-wrap:wrap;

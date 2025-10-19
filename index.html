@@ -10,17 +10,19 @@
 </head>
 
 <body>
-    <div id="divInput">
-        <p>Enter the number of cells per side you want between 1 and 100 :</p>
-        <div>
-            <input id="input" type="number" placeholder="for exemple : 10, 16, 5, 2, etc ...">
-            <button id="btnInput">Apply</button>
-        </div>
-    </div>
+    <div id="leftMenu" class="flexColumn">
+        <h1 id="title">Etch-a-Sketch</h1>
 
-    <div id="centerPart">
+        <div id="options" class="flexColumn">
+            <div class="flexColumn">
+                <p>Grid size :</p>
+                <div id="divInput">
+                    <input id="input" type="number" placeholder="for exemple : 10, 16, 5, 2, etc ...">
+                    <button id="btnInput">Apply</button>
+                </div>
+            </div>
 
-        <div id="options">
+
             <div id="divColorPicker">
                 <label for="colorPicker">Pick a color</label>
                 <input type="color" id="colorPicker" value="#000000">
@@ -31,9 +33,9 @@
             <button id="btnClear">Clear</button>
             <button id="btnDarkeningEffect">Darkening Effect : off</button>
         </div>
+    </div>
 
-        <div id="container">
-        </div>
+    <div id="container">
     </div>
 
 </body>

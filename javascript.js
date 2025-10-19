@@ -65,8 +65,7 @@ function createTable(nbLine) {
 
 function createDiv(column, line, nbLine) {
     let div = document.createElement("div");
-    // to show the cells number
-    // div.textContent = String(nbLine * column + line);
+    div.textContent = String(nbLine * column + line);
     div.style.backgroundColor = baseColor;
     div.style.width = (parseFloat(getComputedStyle(container).width) / nbLine) + "px";
 
